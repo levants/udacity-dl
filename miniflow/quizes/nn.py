@@ -5,10 +5,9 @@ No changes necessary, but feel free to play
 with this script to test your network.
 """
 
+from miniflow.quizes.miniflow import Input, MSE, topological_sort, forward_pass
 import numpy as np
 
-
-from miniflow.quizes.miniflow import Input, MSE, topological_sort, forward_pass
 
 y, a = Input(), Input()
 cost = MSE(y, a)

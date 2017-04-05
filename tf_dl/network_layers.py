@@ -5,8 +5,6 @@ Generates neural network layers with TensorFlow library
 
 @author: Levan Tsinadze
 """
-
-# Solution is available in the other "solution.py" tab
 import tensorflow as tf
 
 
@@ -44,5 +42,5 @@ logits = tf.matmul(hidden_layer, weights[1]) + biases[1]
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
-    output = sess.run(logits, feed_dict={keep_prob, 0.5})
+    output = sess.run(logits, feed_dict={keep_prob: 0.5})
     print(output)

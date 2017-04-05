@@ -3,6 +3,7 @@ Write the Linear#forward method below!
 """
 import numpy as np
 
+
 class Node:
     def __init__(self, inbound_nodes=[]):
         # Nodes from which this Node receives values
