@@ -1,13 +1,7 @@
 """
-Created on Apr 5, 2017
-
-@author: Levan Tsinadze
-"""
-"""
 Write the Linear#forward method below!
 """
 import numpy as np
-
 
 class Node:
     def __init__(self, inbound_nodes=[]):
@@ -71,90 +65,8 @@ class Linear(Node):
         weights = np.array(self.inbound_nodes[1].value)
         bias = np.array(self.inbound_nodes[2].value)
         self.value = np.matmul(inputs, weights.T) + bias
-        
-   
-    def forward2(self):
-        """
-        Set the value of this node to the linear transform output.
-
-        Your code goes here!
-        """
-        X = self.inbound_nodes[0].value
-        W = self.inbound_nodes[1].value
-        b = self.inbound_nodes[2].value
-        
-        self.value = np.dot(X, W) + b
-
-class Linear2(Node):
-    def __init__(self, X, W, b):
-        # Notice the ordering of the input nodes passed to the
-        # Node constructor.
-        Node.__init__(self, [X, W, b])
-
-    def forward(self):
-        X = self.inbound_nodes[0].value
-        W = self.inbound_nodes[1].value
-        b = self.inbound_nodes[2].value
-        self.value = np.dot(X, W) + b
-
-class Sigmoid(Node):
-    """
-    You need to fix the `_sigmoid` and `forward` methods.
-    """
-    def __init__(self, node):
-        Node.__init__(self, [node])
-
-    def _sigmoid(self, x):
-        """
-        This method is separate from `forward` because it
-        will be used later with `backward` as well.
-
-        `x`: A numpy array-like object.
-
-        Return the result of the sigmoid function.
-
-        Your code here!
-        """
-        return 1. / (1. + np.exp(-x))
 
 
-    def forward(self):
-        """
-        Set the value of this node to the result of the
-        sigmoid function, `_sigmoid`.
-
-        Your code here!
-        """
-        # This is a dummy value to prevent numpy errors
-        # if you test without changing this method.
-        self.value = self._sigmoid(self.inbound_nodes[0].value)
-        
-class MSE(Node):
-    def __init__(self, y, a):
-        """
-        The mean squared error cost function.
-        Should be used as the last node for a network.
-        """
-        # Call the base class' constructor.
-        Node.__init__(self, [y, a])
-
-    def forward(self):
-        """
-        Calculates the mean squared error.
-        """
-        # NOTE: We reshape these to avoid possible matrix/vector broadcast
-        # errors.
-        #
-        # For example, if we subtract an array of shape (3,) from an array of shape
-        # (3,1) we get an array of shape(3,3) as the result when we want
-        # an array of shape (3,1) instead.
-        #
-        # Making both arrays (3,1) insures the result is (3,1) and does
-        # an elementwise subtraction as expected.
-        y = self.inbound_nodes[0].value.reshape(-1, 1)
-        a = self.inbound_nodes[1].value.reshape(-1, 1)
-        # TODO: your code here
-        return np.mean(np.square(y - a))
 
 def topological_sort(feed_dict):
     """
