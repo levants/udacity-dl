@@ -4,3 +4,8 @@
 /datas/
 /dlnd/
 *.pyc
+*/cifar-10-batches-py/
+*/cifar-10-python.tar.gz
+*/preprocess_batch_*
+*/preprocess_training.p
+*/preprocess_validation.p
