@@ -2,8 +2,6 @@
 Created on Apr 5, 2017
 
 @author: Levan Tsinadze
-"""
-"""
 Write the Linear#forward method below!
 """
 import numpy as np
