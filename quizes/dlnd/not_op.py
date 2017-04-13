@@ -5,6 +5,7 @@ Created on Feb 7, 2017
 """
 import pandas as pd
 
+
 # TODO: Set weight1, weight2, and bias
 weight1 = -0.5
 weight2 = -1.1
