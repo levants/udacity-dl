@@ -21,14 +21,16 @@ dropout = 0.75  # Dropout, probability to keep units
 weights = {
     'wc1': tf.Variable(tf.random_normal([5, 5, 1, 32])),
     'wc2': tf.Variable(tf.random_normal([5, 5, 32, 64])),
-    'wd1': tf.Variable(tf.random_normal([7*7*64, 1024])),
-    'out': tf.Variable(tf.random_normal([1024, n_classes]))}
+    'wd1': tf.Variable(tf.random_normal([7 * 7 * 64, 1024])),
+    'out': tf.Variable(tf.random_normal([1024, n_classes]))
+    }
 
 biases = {
     'bc1': tf.Variable(tf.random_normal([32])),
     'bc2': tf.Variable(tf.random_normal([64])),
     'bd1': tf.Variable(tf.random_normal([1024])),
-    'out': tf.Variable(tf.random_normal([n_classes]))}
+    'out': tf.Variable(tf.random_normal([n_classes]))
+    }
 
 
 def conv2d(x, W, b, strides=1):
@@ -82,7 +84,7 @@ with tf.Session() as sess:
     sess.run(init)
 
     for epoch in range(epochs):
-        for batch in range(mnist.train.num_examples//batch_size):
+        for batch in range(mnist.train.num_examples // batch_size):
             batch_x, batch_y = mnist.train.next_batch(batch_size)
             sess.run(optimizer, feed_dict={x: batch_x, y: batch_y, keep_prob: dropout})
 
