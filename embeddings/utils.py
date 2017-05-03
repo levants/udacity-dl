@@ -1,5 +1,6 @@
 import re
 from collections import Counter
+import numpy as np
 
 def preprocess(text):
 
