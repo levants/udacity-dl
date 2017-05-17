@@ -1,0 +1,2 @@
+model_checkpoint_path: "celeb_generator.ckpt"
+all_model_checkpoint_paths: "celeb_generator.ckpt"
